@@ -1,0 +1,30 @@
+.chatbot {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.chatbot-header {
+  padding: 15px;
+  background-color: rgb(25, 135, 84);
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.chatbot-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+}
+.chatbot-footer {
+  border-top: 2px solid #ddd;
+}
