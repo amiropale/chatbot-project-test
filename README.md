@@ -44,6 +44,7 @@ The Chatbot App allows a user to:
 
 ## Project Structure (Example)
 
+```
 chatbot-project-test/
 ├── src/
 │   ├── components/
@@ -67,6 +68,7 @@ chatbot-project-test/
 ├── index.html
 ├── package.json
 └── README.md
+```
 
 ---
 
