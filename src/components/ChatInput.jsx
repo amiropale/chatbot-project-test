@@ -60,7 +60,8 @@ export function ChatInput({ chatMessages, setChatMessages }) {
   return (
     <div className="chat-input">
       <input type="text" placeholder="Type your message..." size="40" onChange={handleInputChange} onKeyDown={handleKeyDown} value={inputValue} />
-      <button onClick={handleSendClick}>Send</button>
+      <button className="send-button" onClick={handleSendClick}>Send</button>
+      <button className="clear-button" onClick={() => setInputValue('')}>Clear</button>
     </div>
   );
 }
