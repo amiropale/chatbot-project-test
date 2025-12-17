@@ -32,3 +32,25 @@
   padding: 10px;
   background-color: #f7f7f7;
 }
+.chatbot .chatbot-menu-button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.chatbot .chatbot-menu-button:focus {
+  outline: none;
+}
+.chatbot .chatbot-menu-button:hover {
+  color: #ccc;
+}
+.chatbot .chatbot-menu-button:active {
+  color: #999;
+}
+.chatbot .chatbot-menu-button:disabled {
+  color: #eee;
+  cursor: not-allowed;
+}

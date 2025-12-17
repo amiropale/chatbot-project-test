@@ -1,0 +1,87 @@
+.app-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  background-color: rgba(156, 156, 156, 0.722);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.app-menu h3 {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(156, 156, 156, 0.501);
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+  text-align: center;
+  color: #333;
+  cursor: default;
+}
+.app-menu .menu-options {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.app-menu .menu-options button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+}
+.app-menu .menu-options button:hover {
+  background-color: #f0f0f0;
+}
+.app-menu .menu-options button:focus {
+  outline: none;
+}
+.app-menu .menu-options button:active {
+  background-color: #e0e0e0;
+}
+.app-menu .menu-options button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.app-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+.app-menu ul li {
+  margin: 5px 0;
+}
+.app-menu ul li button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  padding: 5px;
+}
+.app-menu ul li button:hover {
+  background-color: #f0f0f0;
+}
+.app-menu ul li button:focus {
+  outline: none;
+}
+.app-menu ul li button:active {
+  background-color: #e0e0e0;
+}
+.app-menu ul li button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.app-menu.open {
+  display: block;
+}
+.app-menu.closed {
+  display: none;
+}
