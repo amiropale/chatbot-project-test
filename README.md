@@ -118,16 +118,6 @@ This keeps the focus on **React logic**, not AI complexity.
 
 ---
 
-## Suggested Improvements (Optional)
-
-If you want to extend this project:
-
-* Add message timestamps
-* Improve UI styling
-* Store chat history in `localStorage`
-
----
-
 ## Learning Reference
 
 This project is inspired by the beginner-friendly teaching philosophy of **SuperSimpleDev**, focusing on:
