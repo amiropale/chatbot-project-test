@@ -1,5 +1,4 @@
 .app-menu {
-  display: none;
   position: absolute;
   top: 50px;
   left: 15px;
@@ -11,6 +10,13 @@
   width: 200px;
   max-height: 300px;
   overflow-y: auto;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.app-menu[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
 }
 .app-menu h3 {
   margin: 0;
