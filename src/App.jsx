@@ -3,6 +3,7 @@ import { ChatInput } from './components/ChatInput'
 import { WelcomeMessage } from './components/WelcomeMessage'
 import ChatMessages from './components/ChatMessages'
 import AppMenu from './components/AppMenu'
+import AboutModal from './components/AboutModal'
 import './App.css'
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
   // Menu state + refs
   // ------------------------------
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuMounted, setMenuMounted] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
@@ -70,12 +73,29 @@ function App() {
       <button
         ref={buttonRef}
         className="chatbot-menu-button"
-        onClick={() => setMenuOpen(prev => !prev)}
+        onClick={() => {
+          if (!menuMounted) {
+            setMenuMounted(true);
+            setMenuOpen(true);
+          } else {
+            setMenuOpen(false);
+          }
+        }}
       >
         ☰
       </button>
 
-      {menuOpen && <AppMenu ref={menuRef} />}
+      {menuMounted && (
+        <AppMenu
+          ref={menuRef}
+          isOpen={menuOpen}
+          onExited={() => setMenuMounted(false)}
+          onAbout={() => {
+            setShowAbout(true);
+            setMenuOpen(false);
+          }}
+        />
+      )}
 
       {chatMessages.length === 0 && <WelcomeMessage />}
 
@@ -85,6 +105,10 @@ function App() {
         chatMessages={chatMessages}
         setChatMessages={setChatMessages}
       />
+
+      {showAbout && (
+        <AboutModal onClose={() => setShowAbout(false)} />
+      )}
     </div>
   );
 }

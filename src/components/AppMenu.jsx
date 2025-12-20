@@ -1,29 +1,43 @@
-import { forwardRef } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import './AppMenu.css';
 
-const AppMenu = forwardRef((props, ref) => {
+const AppMenu = forwardRef(({ isOpen, onExited, onAbout }, ref) => {
+  const [visible, setVisible] = useState(false);
+
+  // Enter animation
+  useEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        setVisible(true);
+      });
+    } else {
+      // Exit animation
+      setVisible(false);
+
+      const timeout = setTimeout(() => {
+        onExited?.();
+      }, 150); // must match CSS transition duration
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isOpen, onExited]);
+
   function handleResetChat() {
     localStorage.removeItem('chatMessages');
     window.location.reload();
   }
 
-  function handleAbout() {
-    alert(
-      'Chatbot Application\nVersion 1.0.0 (test-project)\nDeveloped by AmirMalek\nGitHub: https://github.com/amiropale'
-    );
-  }
-
   return (
-    <div ref={ref} className="app-menu" data-visible="true">
+    <div ref={ref} className="app-menu" data-visible={visible}>
       <h3>App Menu</h3>
       <ul className="menu-options">
         <li>
-          <button className="reset-chat-button" onClick={handleResetChat}>
+          <button onClick={handleResetChat}>
             Reset Chat History
           </button>
         </li>
         <li>
-          <button className="about-button" onClick={handleAbout}>
+          <button onClick={onAbout}>
             About
           </button>
         </li>
